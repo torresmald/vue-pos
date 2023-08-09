@@ -25,6 +25,16 @@ const router = createRouter({
           component: () => import('../views/admin/AgregarProductoView.vue')
         },
         {
+          path: 'seeder',
+          name: 'seed-productos',
+          component: () => import('../views/admin/SeederView.vue')
+        },
+        {
+          path: 'editar/:id',
+          name: 'editar-producto',
+          component: () => import('../views/admin/EditProductView.vue')
+        },
+        {
           path: 'ventas',
           name: 'ventas',
           component: () => import('../views/admin/VentasView.vue')
