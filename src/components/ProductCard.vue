@@ -1,10 +1,15 @@
 <script setup>
 import { formatCurrency } from "../helpers";
+import { useCartStore } from "../stores/useCart";
 defineProps({
   product: {
     type: Object,
   },
 });
+
+
+const cart = useCartStore();
+
 </script>
 
 <template>
@@ -17,7 +22,7 @@ defineProps({
         Precio: {{ formatCurrency(product.price) }}
       </p>
     </div>
-    <button type="button" class="absolute bottom-5 right-2">
+    <button type="button" class="absolute bottom-5 right-2" @click="cart.addItem(product)">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"

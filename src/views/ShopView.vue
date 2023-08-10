@@ -1,8 +1,12 @@
 <script setup>
 import {storeToRefs} from 'pinia'
 import MenuNav from "../components/MenuNav.vue";
+import ShoppingCart from '../components/ShoppingCart.vue';
 import { useProductsStore } from "../stores/useProducts";
 import ProductCard from '../components/ProductCard.vue'
+import { useCartStore } from '../stores/useCart';
+
+const cart = useCartStore()
 const products = useProductsStore();
 const { filteredProducts } = storeToRefs(products);
 </script>
@@ -16,7 +20,7 @@ const { filteredProducts } = storeToRefs(products);
         </div>
     </div>
     <aside class="lg:w-1/3 lg:screen lg:overflow-y-scroll pt-10 pb-32 px-10">
-
+      <ShoppingCart />
     </aside>
   </main>
 </template>
