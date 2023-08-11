@@ -29,7 +29,9 @@ export const useProductsStore = defineStore('products', () => {
     })
 
     const filteredProducts = computed(() => {
-        return productsCollection.value.filter(product => product.category === selectedCategory.value)
+        return productsCollection.value
+        .filter(product => product.category === selectedCategory.value)
+        .filter(product => product.available  > 0)
     })
 
     const createProduct = async (product) => {
@@ -63,6 +65,9 @@ export const useProductsStore = defineStore('products', () => {
             console.log(error);
         }
     }
+
+
+    
 
     return {
         createProduct,

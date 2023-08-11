@@ -30,8 +30,8 @@ const products = useProductsStore();
       </div>
     </div>
 
-    <nav class="">
-      <Link to="admin"> Administrar </Link>
+    <nav>
+      <Link to="ventas"> Administrar </Link>
     </nav>
   </header>
 </template>

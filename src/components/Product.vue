@@ -1,18 +1,25 @@
 <script setup>
+import { computed } from "vue";
 import { RouterLink } from "vue-router";
 import { formatCurrency } from "../helpers/index";
 import { useProductsStore } from "../stores/useProducts";
 const products = useProductsStore()
-defineProps({
+const props = defineProps({
   product: {
     type: Object,
   },
 });
+
+const isAvailable = computed(() => {
+  return props.product.available > 0
+})
+
 </script>
 
 <template>
   <li
     class="flex items-center space-x-6 border border-gray-200 p-6 shadow bg-white"
+    :class="{'opacity-40 bg-red-300': !isAvailable}"
   >
     <img :src="product.image" :alt="product.name" class="h-24 w-24" />
     <div class="space-y-2 flex-auto">

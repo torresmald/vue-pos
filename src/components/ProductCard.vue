@@ -7,9 +7,7 @@ defineProps({
   },
 });
 
-
 const cart = useCartStore();
-
 </script>
 
 <template>
@@ -22,7 +20,11 @@ const cart = useCartStore();
         Precio: {{ formatCurrency(product.price) }}
       </p>
     </div>
-    <button type="button" class="absolute bottom-5 right-2" @click="cart.addItem(product)">
+    <button
+      type="button"
+      class="absolute bottom-5 right-2"
+      @click="cart.addItem(product)"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
